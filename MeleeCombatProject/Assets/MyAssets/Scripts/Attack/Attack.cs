@@ -17,14 +17,12 @@ public class Attack : MonoBehaviour, IAttack
     [SerializeField] float tempTime = 0;
     private void Start()
     {
-        print("aaa");
         stats = GetComponent<Stats>();
         player = GetComponent<IPlayer>();
         Invoke("getAnimator", 0.5f);
     }
     private void Update()
     {
-        print("ccc");
         if(Time.time - lastAction > stats.attackDelay)
         {
             resetCombo();
@@ -52,7 +50,6 @@ public class Attack : MonoBehaviour, IAttack
     {
         currentCombo = 0;
         animator.resetAttack();
-        Debug.Log("reset combo");
     }
     public int getCurrentCombo()
     {
