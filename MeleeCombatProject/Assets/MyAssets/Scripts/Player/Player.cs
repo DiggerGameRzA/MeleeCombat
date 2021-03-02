@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Characters;
 using Characters.Movement;
+using Characters.Attack;
 using Player.MoveDirection;
 using Animators;
 
@@ -15,6 +16,7 @@ namespace Player
         Stats stats;
         IMovement movement;
         IMovementDirection movementDirection;
+        IAttack attackManager;
         Rigidbody rbd;
 
         IAnimatorFacade animator;
@@ -33,6 +35,7 @@ namespace Player
             stats = GetComponent<Stats>();
             animator = new AnimatorFacade(GetComponent<ICharacterAnimator>());
             movement = new GroundMovement(this);
+            attackManager = new Attack(animator, this);
             movementDirection = new ThridPersonCamera();
         }
         private void FixedUpdate()
@@ -58,5 +61,10 @@ namespace Player
         {
             return animator;
         }
+        public IAttack getAttackManager()
+        {
+            return attackManager;
+        }
+
     }
 }

@@ -17,6 +17,11 @@ namespace General
                 player.IsRunning = true;
             else
                 player.IsRunning = false;
+
+            if (Input.GetButtonDown("Fire1"))
+            {
+                player.getAttackManager().lightAttack();
+            }
         }
         public static float getHorInput()   //return horizontal value
         {

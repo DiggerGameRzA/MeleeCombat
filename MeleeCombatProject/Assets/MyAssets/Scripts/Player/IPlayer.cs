@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Characters;
+using Characters.Attack;
 using Animators;
 
 namespace Player
@@ -10,6 +11,7 @@ namespace Player
         Transform getTransform();
         Stats getStats();
         IAnimatorFacade getAnimator();
+        IAttack getAttackManager();
         bool IsRunning { get; set; }
     }
 }

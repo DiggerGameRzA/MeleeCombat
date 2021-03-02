@@ -6,6 +6,7 @@ public class CameraManager : MonoBehaviour
     private void Start()
     {
         camera = UnityEngine.Camera.main;               //set this variable equal to main camera in scene
+        Cursor.visible = false;
     }
     public static Vector3 getCameraForwardDirection()   //return forward value of camera direction
     {

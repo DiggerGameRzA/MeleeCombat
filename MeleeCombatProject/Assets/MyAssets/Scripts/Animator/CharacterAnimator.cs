@@ -10,6 +10,8 @@ public class CharacterAnimator : MonoBehaviour, ICharacterAnimator
     int VerInput = Animator.StringToHash("verInput");
     int InputMagnitude = Animator.StringToHash("inputMagnitude");
     int IsRunning = Animator.StringToHash("isRunning");
+    int LightAttack = Animator.StringToHash("lightAttack");
+    int ComboAttack = Animator.StringToHash("comboAttack");
     private void OnEnable()
     {
         anim = GetComponent<Animator>();
@@ -33,5 +35,17 @@ public class CharacterAnimator : MonoBehaviour, ICharacterAnimator
     public void setRunning(bool running)
     {
         anim.SetBool(IsRunning, running);
+    }
+    public void setComboAttack()
+    {
+        anim.SetTrigger(ComboAttack);
+    }
+    public void setLightAttack()
+    {
+        anim.SetTrigger(LightAttack);
+    }
+    public void resetAttacking()
+    {
+        anim.ResetTrigger(ComboAttack);
     }
 }

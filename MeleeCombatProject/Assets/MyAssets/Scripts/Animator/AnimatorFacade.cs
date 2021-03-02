@@ -27,10 +27,17 @@ public class AnimatorFacade : IAnimatorFacade
     }
     public void lightAttack(bool combo)
     {
-
+        if (combo)
+        {
+            characterAnimator.setComboAttack();
+        }
     }
     public void setRunning(bool running)
     {
         characterAnimator.setRunning(running);
+    }
+    public void resetAttack()
+    {
+        characterAnimator.resetAttacking();
     }
 }
