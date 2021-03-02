@@ -2,11 +2,10 @@
 
 public class CameraManager : MonoBehaviour
 {
-    static UnityEngine.Camera camera;
+    static new UnityEngine.Camera camera;
     private void Start()
     {
         camera = UnityEngine.Camera.main;               //set this variable equal to main camera in scene
-        Debug.Log(camera);
     }
     public static Vector3 getCameraForwardDirection()   //return forward value of camera direction
     {
