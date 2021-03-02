@@ -12,7 +12,7 @@ namespace Animators
         void setInputMagnitude(float inputMagnitude);
         void setRunning(bool running);
         void setComboAttack();
-        void setLightAttack();
+        void setLightAttack(int combo);
         void resetAttacking();
     }
 }

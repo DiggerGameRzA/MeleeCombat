@@ -7,5 +7,6 @@ namespace Characters.Attack
         void addCombo();
         void resetCombo();
         int getCurrentCombo();
+        void countdownTime();
     }
 }

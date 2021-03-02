@@ -35,7 +35,7 @@ namespace Player
             stats = GetComponent<Stats>();
             animator = new AnimatorFacade(GetComponent<ICharacterAnimator>());
             movement = new GroundMovement(this);
-            attackManager = new Attack(animator, this);
+            attackManager = GetComponent<IAttack>();
             movementDirection = new ThridPersonCamera();
         }
         private void FixedUpdate()

@@ -25,12 +25,9 @@ public class AnimatorFacade : IAnimatorFacade
     {
         setInputs(InputManager.getHorInput(), InputManager.getVerInput(), InputManager.getMagnitude());
     }
-    public void lightAttack(bool combo)
+    public void lightAttack(int combo)
     {
-        if (combo)
-        {
-            characterAnimator.setComboAttack();
-        }
+        characterAnimator.setLightAttack(combo);
     }
     public void setRunning(bool running)
     {

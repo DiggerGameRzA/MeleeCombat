@@ -8,23 +8,23 @@ using Characters;
 
 public class Attack : MonoBehaviour, IAttack
 {
-    bool combo;
-    int currentCombo;
+    [SerializeField] int currentCombo;
     IAnimatorFacade animator;
     Stats stats;
     IPlayer player;
 
-    float lastAction = 0;
-    float tempTime = 0;
-    public Attack(IAnimatorFacade animator, IPlayer player)
+    [SerializeField] float lastAction = 0;
+    [SerializeField] float tempTime = 0;
+    private void Start()
     {
-        this.animator = animator;
-        this.player = player;
-        stats = player.getStats();
+        print("aaa");
+        stats = GetComponent<Stats>();
+        player = GetComponent<IPlayer>();
+        Invoke("getAnimator", 0.5f);
     }
-
     private void Update()
     {
+        print("ccc");
         if(Time.time - lastAction > stats.attackDelay)
         {
             resetCombo();
@@ -33,23 +33,37 @@ public class Attack : MonoBehaviour, IAttack
 
     public void lightAttack()
     {
-        addCombo();
-        animator.lightAttack(combo);
+        if (currentCombo != 3)
+        {
+            if (tempTime <= 0)
+            {
+                addCombo();
+                animator.lightAttack(currentCombo);
+                tempTime = 0.2f;
+            }
+            lastAction = Time.time;
+        }
     }
     public void addCombo()
     {
-        combo = true;
         currentCombo++;
-        Debug.Log("added combo");
     }
     public void resetCombo()
     {
-        combo = false;
         currentCombo = 0;
         animator.resetAttack();
+        Debug.Log("reset combo");
     }
     public int getCurrentCombo()
     {
         return currentCombo;
+    }
+    void getAnimator()
+    {
+        animator = player.getAnimator();
+    }
+    public void countdownTime()
+    {
+        tempTime -= Time.deltaTime;
     }
 }

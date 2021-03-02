@@ -40,12 +40,12 @@ public class CharacterAnimator : MonoBehaviour, ICharacterAnimator
     {
         anim.SetTrigger(ComboAttack);
     }
-    public void setLightAttack()
+    public void setLightAttack(int combo)
     {
-        anim.SetTrigger(LightAttack);
+        anim.SetInteger(LightAttack, combo);
     }
     public void resetAttacking()
     {
-        anim.ResetTrigger(ComboAttack);
+        anim.SetInteger(LightAttack, 0);
     }
 }

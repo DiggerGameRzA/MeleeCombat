@@ -22,6 +22,8 @@ namespace General
             {
                 player.getAttackManager().lightAttack();
             }
+            else
+                player.getAttackManager().countdownTime();
         }
         public static float getHorInput()   //return horizontal value
         {
