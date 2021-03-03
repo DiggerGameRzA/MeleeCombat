@@ -8,13 +8,13 @@ using Characters;
 
 public class Attack : MonoBehaviour, IAttack
 {
-    [SerializeField] int currentCombo;
+    int currentCombo;
     IAnimatorFacade animator;
     Stats stats;
     IPlayer player;
 
-    [SerializeField] float lastAction = 0;
-    [SerializeField] float tempTime = 0;
+    float lastAction = 0;
+    float tempTime = 0;
     private void Start()
     {
         stats = GetComponent<Stats>();
