@@ -22,19 +22,19 @@ namespace Characters.Movement
 
         public void walk(Vector3 direction)     //method to make character walk
         {
-            rbd.velocity = direction * stats.walkSpeed;
+            rbd.velocity = direction * stats.walkSpeed; //Set velocity equal to player's walk speed
 
-            rotate(direction);
-            animator.updateInputs();
-            animator.setRunning(false);
+            rotate(direction);                          //Rotate player
+            animator.updateInputs();                    //Update all input values
+            animator.setRunning(false);                 //Stop play run animation
         }
         public void run(Vector3 direction)     //method to make character run
         {
-            rbd.velocity = direction * stats.runSpeed;
+            rbd.velocity = direction * stats.runSpeed;  //Set velocity equal to player's walk speed
 
-            rotate(direction);
-            animator.updateInputs();
-            animator.setRunning(true);
+            rotate(direction);                          //Rotate player
+            animator.updateInputs();                    //Update all input values
+            animator.setRunning(true);                  //Play run animation
         }
         void rotate(Vector3 direction)          //method for rotating character to camera direction
         {

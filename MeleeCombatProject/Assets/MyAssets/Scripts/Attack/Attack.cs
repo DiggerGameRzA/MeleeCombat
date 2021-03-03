@@ -23,6 +23,7 @@ public class Attack : MonoBehaviour, IAttack
     }
     private void Update()
     {
+        //When finished countdown delay reset combo
         if(Time.time - lastAction > stats.attackDelay)
         {
             resetCombo();
@@ -31,34 +32,45 @@ public class Attack : MonoBehaviour, IAttack
 
     public void lightAttack()
     {
+        //When current combo is not equal to 3
         if (currentCombo != 3)
         {
             if (tempTime <= 0)
             {
                 addCombo();
                 animator.lightAttack(currentCombo);
-                tempTime = 0.2f;
+                tempTime = 0.2f;                //Delay between action
             }
-            lastAction = Time.time;
+            lastAction = Time.time;             //Reset lastAction value
         }
     }
+
+    //Increase current combo
     public void addCombo()
     {
         currentCombo++;
     }
+
+    //Set current combo to 0
     public void resetCombo()
     {
         currentCombo = 0;
         animator.resetAttack();
     }
+
+    //Return current combo value
     public int getCurrentCombo()
     {
         return currentCombo;
     }
+
+    //Return animator
     void getAnimator()
     {
         animator = player.getAnimator();
     }
+
+    //Countdown time
     public void countdownTime()
     {
         tempTime -= Time.deltaTime;

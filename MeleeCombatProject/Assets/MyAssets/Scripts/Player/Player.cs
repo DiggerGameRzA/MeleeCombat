@@ -57,11 +57,11 @@ namespace Player
         {
             return stats;
         }
-        public IAnimatorFacade getAnimator()
+        public IAnimatorFacade getAnimator()    //return animator
         {
             return animator;
         }
-        public IAttack getAttackManager()
+        public IAttack getAttackManager()       //return attack manager
         {
             return attackManager;
         }

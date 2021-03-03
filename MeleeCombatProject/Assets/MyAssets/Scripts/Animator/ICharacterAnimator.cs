@@ -11,7 +11,6 @@ namespace Animators
         void setVerInput(float verInput);
         void setInputMagnitude(float inputMagnitude);
         void setRunning(bool running);
-        void setComboAttack();
         void setLightAttack(int combo);
         void resetAttacking();
     }

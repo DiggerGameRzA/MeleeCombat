@@ -5,7 +5,7 @@ namespace General
 {
     public class InputManager : MonoBehaviour
     {
-        public GameObject playerPrefabs;
+        public GameObject playerPrefabs;        //Get player's prefab
         IPlayer player;
         private void Start()
         {
@@ -13,12 +13,12 @@ namespace General
         }
         private void Update()
         {
-            if (Input.GetButton("Sprint"))
+            if (Input.GetButton("Sprint"))      //When press run
                 player.IsRunning = true;
             else
                 player.IsRunning = false;
 
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1"))   //When press left mouse
             {
                 player.getAttackManager().lightAttack();
             }
